@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_movie"
+            android:layout_width="160dp"
+            android:layout_height="230dp"
+            android:src="@drawable/img_it" />
+
+        <TextView
+            android:id="@+id/tv_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_favorite_black_46dp"
+            android:layout_alignLeft="@id/iv_movie"
+            android:layout_marginTop="4dp"
+            android:drawableTint="@color/accent" />
+
+        <TextView
+            android:id="@+id/tv_fav_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7.2"
+            android:layout_alignLeft="@id/iv_movie"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="14dp"
+            android:textColor="@color/white_full"/>
+
+        <TextView
+            android:id="@+id/tv_crop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/ic_crop_free_black_36dp"
+            android:layout_alignRight="@id/iv_movie"
+            android:layout_alignBottom="@id/iv_movie"
+            android:layout_marginBottom="4dp"
+            android:drawableTint="@color/white_full"/>
+
+        <TextView
+            android:id="@+id/tv_movie_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IT"
+            android:textSize="16sp"
+            android:layout_toRightOf="@id/iv_movie"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/primary_text"/>
+
+        <TextView
+            android:id="@+id/tv_movie_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(Drama, Horror, Thriller)"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_below="@id/tv_movie_name"
+            android:layout_marginTop="8dp"
+            android:layout_alignLeft="@id/tv_movie_name"
+            android:textColor="@color/primary_text" />
+
+        <TextView
+            android:id="@+id/tv_current_popularity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Current Popularity"
+            android:textSize="16sp"
+            android:layout_below="@id/tv_movie_type"
+            android:layout_marginTop="8dp"
+            android:layout_alignLeft="@id/tv_movie_name"
+            android:textColor="@color/primary_text"
+            />
+
+        <LinearLayout
+            android:id="@+id/ll_stars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignLeft="@id/tv_movie_name"
+            android:layout_below="@id/tv_current_popularity">
+
+            <FrameLayout
+                android:id="@+id/fl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_stars_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_star_black_24dp"
+                    android:drawableTint="@color/star"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/f2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_stars_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_star_black_24dp"
+                    android:drawableTint="@color/star"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/f3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_stars_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_star_black_24dp"
+                    android:drawableTint="@color/star"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/f4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_stars_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_star_black_24dp"
+                    android:drawableTint="@color/star"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/f5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_stars_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_star_black_24dp"
+                    android:drawableTint="@color/star"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/f6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_stars_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_star_black_24dp"
+                    android:drawableTint="@color/star"/>
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tv_stars_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/ic_star_12dp"
+                android:drawableTint="@color/star"
+                />
+
+           <!-- <FrameLayout
+                android:id="@+id/f7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_stars_7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_star_black_24dp"
+                    android:ellipsize="start"
+                    android:drawableTint="@color/primary"/>
+
+            </FrameLayout>-->
+        </LinearLayout>
+
+        <!--<TextView
+            android:id="@+id/tv_stars_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/ic_star_black_24dp"
+            android:layout_below="@id/tv_current_popularity"
+            android:layout_toRightOf="@id/ll_stars"
+            android:drawableTint="@color/primary"/> -->
+
+
+        <Button
+            android:id="@+id/btn_movie_overview"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:text="Movie OverView"
+            android:textColor="@color/white_full"
+            android:textAllCaps="false"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@id/iv_movie"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@color/primary_dark" />
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
