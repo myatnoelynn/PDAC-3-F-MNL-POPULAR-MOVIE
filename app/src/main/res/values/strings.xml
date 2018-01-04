@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Movie Shelf</string>
     <string name="action_settings">Settings</string>
+    <string name="movie_overview">It is a 2017 American supernatural horror film directed by Andy Muschietti, based on the 1986 novel of the same name by Stephen King. The screenplay is by Chase Palmer, Cary Fukunaga and Gary Dauberman. The film tells the story of seven children in Derry, Maine, who are terrorized by the eponymous being, only to ...</string>
+    <string name="title">IT Movie Overview</string>
 </resources>

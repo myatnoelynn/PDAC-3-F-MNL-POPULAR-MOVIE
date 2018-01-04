@@ -1,5 +1,6 @@
 package com.popular_movie.activites;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -14,8 +15,9 @@ import butterknife.ButterKnife;
 
 import com.popular_movie.R;
 import com.popular_movie.adpater.PopularMovieAdapter;
+import com.popular_movie.delegates.MoviesActionsDelegates;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MoviesActionsDelegates{
 
     @BindView(R.id.rv_popular_movies)
     RecyclerView rvPopularMovies;
@@ -45,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });*/
 
-        movieAdapter = new PopularMovieAdapter();
+        movieAdapter = new PopularMovieAdapter(this);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(),
                 LinearLayoutManager.VERTICAL, false);
@@ -75,5 +77,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onTapMoviesItem() {
+        Intent intent=new Intent(getApplication(),MovieDetailsActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onTapFavoriteButton() {
+
     }
 }
