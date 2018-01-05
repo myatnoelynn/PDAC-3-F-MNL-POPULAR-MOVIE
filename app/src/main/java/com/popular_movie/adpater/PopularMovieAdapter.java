@@ -7,8 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.popular_movie.R;
+import com.popular_movie.data.vo.MovieVo;
 import com.popular_movie.delegates.MoviesActionsDelegates;
 import com.popular_movie.viewholder.PopularMoviesViewHolder;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by User on 12/5/2017.
@@ -17,9 +21,11 @@ import com.popular_movie.viewholder.PopularMoviesViewHolder;
 public class PopularMovieAdapter extends RecyclerView.Adapter {
 
     MoviesActionsDelegates moviesActionsDelegates;
+    private List<MovieVo> mMoviesList;
 
     public PopularMovieAdapter(MoviesActionsDelegates moviesActionsDelegates){
         this.moviesActionsDelegates=moviesActionsDelegates;
+        mMoviesList = new ArrayList<MovieVo>();
     }
 
     @Override
@@ -34,11 +40,18 @@ public class PopularMovieAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-
+        PopularMoviesViewHolder l_holder = (PopularMoviesViewHolder)holder;
+        l_holder.setMovie(mMoviesList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return 16;
+        return mMoviesList.size();
+    }
+
+
+    public void setMovies(List<MovieVo> moviesList){
+        mMoviesList=moviesList;
+        notifyDataSetChanged(); // data changes
     }
 }

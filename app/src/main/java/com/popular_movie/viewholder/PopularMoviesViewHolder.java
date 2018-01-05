@@ -2,10 +2,15 @@ package com.popular_movie.viewholder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.popular_movie.R;
+import com.popular_movie.data.vo.MovieVo;
 import com.popular_movie.delegates.MoviesActionsDelegates;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -15,7 +20,14 @@ import butterknife.OnClick;
 
 public class PopularMoviesViewHolder extends RecyclerView.ViewHolder {
 
+
     MoviesActionsDelegates moviesActionsDelegates;
+
+    @BindView(R.id.tv_movie_name)
+    TextView tvMovieName;
+
+    @BindView(R.id.iv_movie)
+    ImageView ivMovie;
 
     public PopularMoviesViewHolder(View itemView,MoviesActionsDelegates moviesActionsDelegates) {
         super(itemView);
@@ -31,6 +43,17 @@ public class PopularMoviesViewHolder extends RecyclerView.ViewHolder {
     public void onMovieItemTab(View v){
 
         moviesActionsDelegates.onTapMoviesItem();
+
+    }
+
+
+
+    public  void setMovie(MovieVo moviesVO){
+        tvMovieName.setText(moviesVO.getTitle());
+
+        Glide.with(ivMovie.getContext())
+                .load(moviesVO.getPosterPath())
+                .into(ivMovie);
 
     }
 

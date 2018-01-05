@@ -7,15 +7,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import com.popular_movie.PMovieApp;
 import com.popular_movie.R;
 import com.popular_movie.adpater.PopularMovieAdapter;
+import com.popular_movie.data.model.MovieModel;
 import com.popular_movie.delegates.MoviesActionsDelegates;
+import com.popular_movie.events.LoadMoviesEvent;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 public class MainActivity extends AppCompatActivity implements MoviesActionsDelegates{
 
@@ -55,6 +63,8 @@ public class MainActivity extends AppCompatActivity implements MoviesActionsDele
         rvPopularMovies.setLayoutManager(linearLayoutManager);
 
         rvPopularMovies.setAdapter(movieAdapter);
+        // Load Move List form Network
+        MovieModel.getsObjInstance().loadMovies();
     }
 
     @Override
@@ -79,6 +89,18 @@ public class MainActivity extends AppCompatActivity implements MoviesActionsDele
         return super.onOptionsItemSelected(item);
     }
 
+
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
+
     @Override
     public void onTapMoviesItem() {
         Intent intent=new Intent(getApplication(),MovieDetailsActivity.class);
@@ -89,4 +111,12 @@ public class MainActivity extends AppCompatActivity implements MoviesActionsDele
     public void onTapFavoriteButton() {
 
     }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onNewsLoaded(LoadMoviesEvent event){
+
+        Log.d(PMovieApp.LOG_TAG,"onMoviesLoaded : " +event.getmMovieList().size());
+        movieAdapter.setMovies(event.getmMovieList());
+    }
+
 }
